@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          Int       @id @unique(map: "sqlite_autoindex_categories_1") @default(autoincrement())
+  index       Int?
+  label       String
+  description String?
+  products    Product[] @relation("categoriesToproducts")
+
+  @@map("categories")
+}
+
+model Product {
+  id                    Int      @id @unique(map: "sqlite_autoindex_products_1") @default(autoincrement())
+  label                 String
+  description           String?
+  price                 Int
+  category_id           Int
+  thumbnail_url         String?
+  visible_public        Int      @default(0)
+  visible_authenticated Int      @default(1)
+  categories            Category @relation("categoriesToproducts", fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("products")
+}
+
+model User {
+  id            Int    @id @unique(map: "sqlite_autoindex_users_1") @default(autoincrement())
+  name          String
+  email         String
+  password_hash String
+
+  @@map("users")
+}
