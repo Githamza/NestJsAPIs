@@ -1,6 +1,7 @@
 ## Description
 
-A Nest JS backend APIs linked to an SQLite Database + Prisma2 that similate an ecommerce catalog products
+A Nest JS backend APIs linked to an SQLite Database + Prisma2 that similate an ecommerce products
+
 List of Apis :
 
 - **getAllCategories** : get all categories list
