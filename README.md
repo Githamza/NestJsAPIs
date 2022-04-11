@@ -6,8 +6,8 @@ List of Apis :
 
 - **getAllCategories** : get all categories list
 - **getAllProducts** : get all products list :
- - if hashed password passed (= user connected): return authentificated user products )
- - If hashed password not passed = return public products.
+  - if hashed password passed (= user connected): return authentificated user products )
+  - If hashed password not passed = return public products.
 - **getProductsFromList** : send list of products to get ( products on cart for example )
 - **getUser** : get user by Id
 - **logUser** : Login user ( id + passord)
